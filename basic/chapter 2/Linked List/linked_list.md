@@ -24,3 +24,24 @@ void insert(int x)
     e[idx] = x, ne[idx] = head, head = idx ++ ;
 }
 ```
+
+#### 👉在表中k位置插入x
+
+```
+void add(int k,int x){
+    n[idx]=x;
+    ne[idx]=ne[k];
+    ne[k]=idx++;
+}
+```
+#### 👉将k删除（头节点存在）
+
+```
+void remove(int k)
+{
+    ne[k]=ne[ne[k]];
+
+}
+```
+
+
