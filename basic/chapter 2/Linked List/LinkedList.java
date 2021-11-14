@@ -1,6 +1,8 @@
 package com.algorithm.linkedList;
 
-public class LinkedList<T> {
+import java.util.Iterator;
+
+public class LinkedList<T> implements Iterable<T>{
 
     // 记录头节点
     public Node head;
@@ -144,5 +146,30 @@ public class LinkedList<T> {
             }
         }
         return -1;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new LIterator();
+    }
+
+    private class LIterator implements Iterator {
+
+        private Node n;
+
+        public LIterator() {
+            this.n = head;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return n.next != null;
+        }
+
+        @Override
+        public Object next() {
+            n = n.next;
+            return n.item;
+        }
     }
 }
