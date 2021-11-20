@@ -11,7 +11,9 @@
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+      // 小技巧：添加一个虚拟头节点，就不需要特判第一个点了
         auto dummy = new ListNode(-1), cur = dummy;
+        // 进位
         int t = 0;
         while (l1 || l2 || t) {
             if (l1) t += l1->val, l1 = l1->next;
@@ -19,6 +21,7 @@ public:
             cur = cur->next = new ListNode(t % 10);
             t /= 10;
         }
+        // 返回真正的头节点
         return dummy->next;
     }
 };
