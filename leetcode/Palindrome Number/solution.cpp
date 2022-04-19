@@ -1,3 +1,4 @@
+// 转成字符串
 class Solution {
 public:
     bool isPalindrome(int x) {
@@ -6,3 +7,4 @@ public:
         return s == string(s.rbegin(), s.rend());
     }
 };
+
